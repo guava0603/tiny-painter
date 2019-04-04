@@ -65,8 +65,8 @@ canvas {
   display: flex;
   position: absolute;
   top: 0;
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   box-shadow: 0 0 20px rgb(0, 0, 0, .3);
   background: rgb(220, 220, 220);
@@ -210,5 +210,5 @@ select > option {
 }
 
 .button-group:hover > .one { top: 0; }
-.button-group:hover > .two { top: 45; }
-.button-group:hover > .three { top: 90; }
+.button-group:hover > .two { top: 40; }
+.button-group:hover > .three { top: 80; }

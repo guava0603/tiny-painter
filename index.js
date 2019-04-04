@@ -211,6 +211,18 @@ async function mouseMove(evt) {
 
 // 1. pencil
 function pencil(mousePos) {
+  if (mini_mode === 3) {
+    var r = shapeWidth*8;
+    ctx.lineWidth = 1;
+    for (var i = 0; i < 5; i++) {
+      var x = mousePos.x+Math.floor(Math.random() * r), y = mousePos.y+Math.floor(Math.random() * r);
+      ctx.moveTo(x, y);
+      ctx.arc(x, y, 1, 0, Math.PI*2, true);
+      ctx.stroke();
+    }
+    Math.floor(Math.random() * r);
+    return;
+  }
   // ctx.moveTo(startPoint.x, startPoint.y);
   ctx.lineTo(mousePos.x, mousePos.y);
   ctx.stroke();
@@ -296,6 +308,7 @@ _painter.addEventListener('mouseup', function(evt) {
     ctx.stroke(); 
   }
   pushImg();
+  radius = 0;
   // console.log(imgArray, lastImg);
   _painter.removeEventListener('mousemove', mouseMove, false);
 }, false);

@@ -130,9 +130,13 @@ function changeMode(m, n) {
       }
       break;
     case 2:
-      ctx.strokeStyle = backgroundColor;
-      ctx.lineWidth = eraserWidth;
-      _painter.style.cursor = 'url("assets/png/eraser.png"), auto';
+      switch(mini_mode) {
+        case 1:
+        ctx.strokeStyle = backgroundColor;
+        ctx.lineWidth = eraserWidth;
+        _painter.style.cursor = 'url("assets/png/eraser.png"), auto';
+        break;
+      }
       break;
     case 3:
     case 4:
@@ -223,6 +227,9 @@ function pencil(mousePos) {
     Math.floor(Math.random() * r);
     return;
   }
+  else if (mode === 2 && mini_mode === 2) {
+    return;
+  }
   // ctx.moveTo(startPoint.x, startPoint.y);
   ctx.lineTo(mousePos.x, mousePos.y);
   ctx.stroke();
@@ -278,6 +285,13 @@ _painter.addEventListener('mousedown', function(evt) {
 });
 _painter.addEventListener('mouseup', function(evt) {
   var mousePos = getMousePos(_painter, evt);
+  if (mode === 2 && mini_mode === 2) {
+    ctx.lineWidth = shapeWidth;
+    ctx.strokeStyle = curColor;
+    ctx.moveTo(startPoint.x, startPoint.y);
+    ctx.lineTo(mousePos.x, mousePos.y);
+    ctx.stroke();
+  }
   if (mode === 3 || mode === 4 || mode === 5) {
     ctx.beginPath();
     if (mode === 3) {

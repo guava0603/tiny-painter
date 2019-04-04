@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>Close</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="App-Download-bar_414" transform="translate(-16.000000, -18.000000)">
+            <g id="Close" transform="translate(16.000000, 18.000000)">
+                <circle id="Oval-6" fill="#FFFFFF" cx="12" cy="12" r="12"></circle>
+                <path d="M12.3715342,11.9846075 L15.4064469,14.9208336 L15.6,15.1080929 L15.2157284,15.4853742 L15.0221753,15.2981149 L11.9979359,12.3722151 L9.07354122,15.4062698 L8.88681305,15.6 L8.48926275,15.2360221 L8.67599092,15.0422919 L11.6106826,11.9975541 L8.59355311,9.07853301 L8.4,8.89127369 L8.78427159,8.51399234 L8.9778247,8.70125167 L11.9842809,11.6099465 L14.8914819,8.59373017 L15.0782101,8.4 L15.4757604,8.7639779 L15.2890322,8.95770808 L12.3715342,11.9846075 Z" id="close" stroke="#EA2B40" fill="#EA2B40" stroke-linecap="square"></path>
+            </g>
+        </g>
+    </g>
+</svg>

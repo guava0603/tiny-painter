@@ -1,0 +1,220 @@
+:root {
+  --canvas-width: 800;
+  --canvas-height: 600;
+}
+
+canvas > div {
+  z-index: 100;
+}
+
+body {
+  margin: 0;
+}
+
+#background {
+  display: flex;
+  padding: calc(50vh - var(--canvas-height) / 2 * 1px);
+  /* width: 100%;
+  height: 100%; */
+  background-image: url('assets/jpg/background.jpg');
+  background-size: cover;
+}
+
+canvas {
+  width: calc(var(--canvas-width) * 1px);
+  height: calc(var(--canvas-height) * 1px);
+  background-color: white;
+  border: 3px solid #738598;
+  border-radius: 2%;
+  margin-right: 20px;
+  color: blue;
+}
+
+#menu {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 250px;
+  height: 600px;
+  background: rgba(255, 255, 255, .2);
+  border-radius: 5%;
+  border: #3c415e 5px solid;
+  padding: 20px;
+}
+
+#menu > .button-group {
+  display: flex;
+  width: 35px;
+  flex-direction: column;
+  position: relative;
+  margin: 10px;
+}
+
+.button-group > .button, label {
+  display: flex;
+  position: absolute;
+  top: 0;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgb(0, 0, 0, .3);
+  background: rgb(220, 220, 220);
+  border: 2px solid white;
+  cursor: pointer;
+  transition: all .6s;
+}
+
+.button-group > .button:focus, label:focus {
+  background: white;
+}
+
+.button-group > .button:hover {
+  box-shadow: 0 0 25px rgb(0, 0, 0, .5);
+  transform: rotate(20deg) scale(1.1);
+  transition: all .6s;
+}
+
+.button-group i {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#color {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+  height: 100px;
+}
+
+#color > .color {
+  width: calc(100% / 10);
+  height: 25%;
+  /* margin: 5px; */
+}
+
+label > input {
+  position: absolute;
+  color: transparent;
+  background-color: transparent;
+  width: 50%;
+  left: 25%;
+  top: 25%;
+}
+
+label > i {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgb(220, 220, 220);
+  border-radius: 50%;
+  /* z-index: 10; */
+}
+
+#modify span {
+  color: rgba(218, 221, 223, .8);
+  font-weight: 500;
+  font-size: 12px;
+  margin-right: 15px;
+}
+
+.range-container {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  margin-bottom: 5px;
+  border-bottom: 2px solid rgba(28, 31, 48, .5);
+}
+
+input[type="range"]{
+  -webkit-appearance: none;
+  /*overflow: hidden;     /* 限定範圍 */
+  width: 230px;
+  height: 20px;
+  outline : none;      /* 避免點選會有藍線或虛線 */
+  background: none;
+  cursor: pointer;
+}
+input[type="range"]::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  position: relative;    /* 設為相對位置，為了前後區塊的絕對位置而設定 */
+  width:10px;
+  height:10px;
+  background: #183661;
+  border-radius:50%;
+  transition:.5s;        /* 點選放大時候的漸變時間 */
+}
+input[type="range"]:hover::-webkit-slider-thumb{
+  transform: scale(1.5);
+  transition: .5s;
+}
+input[type="range"]::-webkit-slider-thumb:before, input[type="range"]::-webkit-slider-thumb:after
+{
+  position: absolute;
+  top: 3px;
+  width: 200px;          /* 長度很長沒關係，因為剛剛有用 overflow:hidden 了 */
+  height: 4px;
+  content: "";
+  pointer-events: none;   /* 讓滑鼠可以點擊穿透偽元素，不然會點不到下面 */
+  transition: .2s;
+}
+input[type="range"]::-webkit-slider-thumb:before{
+  left: -1997px;
+  background: #f22;
+}
+input[type="range"]::-webkit-slider-thumb:after {
+  left: 10px;
+  background: #edc;
+}
+input[type="range"]:active::-webkit-slider-thumb:before,
+input[type="range"]:active::-webkit-slider-thumb:after
+{
+  top: 6px;
+}
+
+input[type="range"]:active::-webkit-slider-thumb:after {
+  left: 16px;
+}
+
+input[type="text"] {
+  width: 50%;
+  border-radius: 5px;
+  outline: none;
+  padding: 3px 5px;
+  border: 2px solid white;
+  border-radius: 3px;
+  background-color: white;
+  font-weight: 600;
+}
+
+select {
+  -webkit-appearance: none;
+  outline: none;
+  background: rgb(220, 220, 220);
+  border-radius: 3px;
+  padding: 3px 15px 3px 5px;
+  border: 2px solid white;
+  font-weight: 600;
+}
+
+select > option {
+  -webkit-appearance: none;
+}
+
+.black { background-color: black; }
+.white { background-color: white; }
+.yellow { background-color: yellow; }
+.green { background-color: green; }
+.blue { background-color: blue; }
+.purple { background-color: purple; }
+.gray { background-color: gray; }
+.red { background-color: red; }
+.orange { background-color: orange; }
+.pink { background-color: pink; }
+
+.button-group:hover > .one { top: 0; }
+.button-group:hover > .two { top: 45; }
+.button-group:hover > .three { top: 90; }

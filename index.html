@@ -1,0 +1,88 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Painter</title>
+		<!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="painter.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/solid.css" integrity="sha384-QokYePQSOwpBDuhlHOsX0ymF6R/vLk/UQVz3WHa6wygxI5oGTmDTv8wahFOSspdm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/regular.css" integrity="sha384-FKw7x8fCxuvzBwOJmhTJJsKzBl8dnN9e2R4+pXRfYoHivikuHkzWyhKWDSMcGNK8" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/brands.css" integrity="sha384-n9+6/aSqa9lBidZMRCQHTHKJscPq6NW4pCQBiMmHdUCvPN8ZOg2zJJTkC7WIezWv" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/fontawesome.css" integrity="sha384-vd1e11sR28tEK9YANUtpIOdjGW14pS87bUBuOIoBILVWLFnS+MCX9T6MMf0VdPGq" crossorigin="anonymous">
+  </head>
+  <body>
+    <div id="background">
+      <canvas id="painter" width="800px" height="600px"></canvas>
+      <div id="menu">
+        <div class="button-group">
+          <div id="pencil" class="button one" onclick="changeMode(1, 1)"><i class="fas fa-pencil-alt"></i></div>
+          <div id="marker" class="button two" onclick="changeMode(1, 2)"><i class="fas fa-highlighter"></i></div>
+        </div>
+        <div class="button-group">
+          <div id="eraser" class="button one" onclick="changeMode(2)"><i class="fas fa-eraser"></i></div>
+        </div>
+        <div class="button-group">
+          <div id="circle" class="button one" onclick="changeMode(3, 1)"><i class="far fa-circle"></i></div>
+          <div id="circle-fill" class="button two" onclick="changeMode(3, 2)"><i class="fas fa-circle"></i></div>
+        </div>
+        <div class="button-group">
+          <div id="rect" class="button one" onclick="changeMode(4, 1)"><i class="far fa-square"></i></div>
+          <div id="rect-fill" class="button two" onclick="changeMode(4, 2)"><i class="fas fa-square"></i></div>
+        </div>
+        <div class="button-group">
+          <div id="trian" class="button one" onclick="changeMode(5, 1)"><i class="fas fa-chevron-up"></i></div>
+          <div id="trian" class="button two" onclick="changeMode(5, 2)"><i class="fas fa-caret-up"></i></div>
+        </div>
+        <div class="button-group">
+          <div id="font" class="button one" onclick="changeMode(6, 1)"><i class="fas fa-font"></i></i></div>
+        </div>
+        <div class="button-group">
+          <!-- <input type="file" id="inp"> -->
+          <label class="button one"><input type="file" id="upload-img"><i class="fas fa-images"></i></input></label>
+        </div>
+        <div class="button-group">
+          <div id="download-img" class="button one" onclick="download()"><i class="fas fa-upload"></i></div>
+        </div>
+        <div class="button-group">
+          <div id="clear" class="button one" onclick="changeMode(10)"><i class="fas fa-times"></i></div>
+        </div>
+        <div class="button-group">
+          <div id="undo" class="button one" onclick="undo()"><i class="fas fa-backward"></i></div>
+        </div>
+        <div class="button-group">
+          <div id="redo" class="button one" onclick="redo()"><i class="fas fa-forward"></i></div>
+        </div>
+        <div id="modify">
+          <!-- <div><span>line width</span><input type="range" id="pencil-width" min="1" max="10" step="1"></div> -->
+          <div class="range-container"><span>eraser size</span><input type="range" id="eraser-width" min="1" max="10" step="1"></div>
+          <div class="range-container"><span>line width</span><input type="range" id="shape-width" min="1" max="10" step="1"></div>
+          <div class="font-container">
+            <span>font size</span>
+            <input type="range" id="font-size" min="1" max="80" step="1">
+            <select id="font-face">
+              <option value="sans-serif">sans-serif</option>
+              <option value="Arial">Arial</option>
+              <option value="Lucida Console">Lucida Console</option>
+              <option value="Impact">Impact</option>
+              <option value="Comic Sans MS">Comic Sans MS</option>
+            </select>
+            <input type="text" id="text">
+          </div>
+        </div>
+        <div id="color">
+          <div class="color black" onclick="changeColor('black')"></div>
+          <div class="color white" onclick="changeColor('white')"></div>
+          <div class="color yellow" onclick="changeColor('yellow')"></div>
+          <div class="color green" onclick="changeColor('green')"></div>
+          <div class="color blue" onclick="changeColor('blue')"></div>
+          <div class="color red" onclick="changeColor('red')"></div>
+          <div class="color purple" onclick="changeColor('purple')"></div>
+          <div class="color gray" onclick="changeColor('gray')"></div>
+          <div class="color pink" onclick="changeColor('pink')"></div>
+          <div class="color orange" onclick="changeColor('orange')"></div>
+        </div>
+      </div>
+    </div>
+    <!-- JavaScript -->
+		<script src="index.js"></script>
+  </body>
+</html>

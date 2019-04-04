@@ -1,5 +1,6 @@
 var _painter = document.getElementById('painter');
 var ctx = _painter.getContext('2d');
+var _color = document.getElementById('color');
 
 var mode, mini_mode;
 var curColor, backgroundColor, pencilWidth, shapeWidth, eraserWidth;
@@ -43,6 +44,7 @@ function initCanvas() {
   barFont.value = fontSize;
 
   fontStyle = 'oblique ' + String(fontSize) + 'px ' + fontFace;
+  startPoint = {x: 100, y: 100};
 }
 
 // 初始化畫布狀態
@@ -215,7 +217,7 @@ function pencil(mousePos) {
 }
 
 // 2. draw a circle
-function shape(mousePos) {
+async function shape(mousePos) {
   radius = Math.sqrt((mousePos.x-startPoint.x)*(mousePos.x-startPoint.x) + (mousePos.y-startPoint.y)*(mousePos.y-startPoint.y));
   var canvasPic = new Image();
   canvasPic.src = imgArray[lastImg];
@@ -224,11 +226,11 @@ function shape(mousePos) {
       ctx.drawImage(canvasPic, 0, 0);
       console.log('draw');
     })
-  // setTimeout(() => { ctx.stroke(); }, 5);
   }
   ctx.beginPath();
   if (mode === 3) {
     ctx.arc(startPoint.x, startPoint.y, radius, 0, Math.PI*2, true);
+    if (mini_mode === 2) ctx.fill();
   } else if (mode === 4) {
     console.log(mini_mode);
     if (mini_mode === 1) ctx.strokeRect(Math.min(startPoint.x, mousePos.x), Math.min(startPoint.y, mousePos.y), Math.abs(startPoint.x - mousePos.x), Math.abs(startPoint.y - mousePos.y));
@@ -238,11 +240,19 @@ function shape(mousePos) {
     ctx.moveTo(startPoint.x, startPoint.y - radius);
     ctx.lineTo(startPoint.x + edge, startPoint.y + radius / 2);
     ctx.lineTo(startPoint.x - edge, startPoint.y + radius / 2);
+    if (mini_mode === 2) ctx.fill();
   }
   ctx.closePath();
-  ctx.stroke();
+  setTimeout(() => { ctx.stroke(); }, 10);
+  // ctx.stroke();
   console.log('out');
 }
+
+_color.addEventListener('mousedown',function(e) {
+  if (e.target.className==="other-color") {
+    changeColor(e.target.style.backgroundColor);
+  }
+})
 
 // 監聽 canvas，一旦被按就啟動 mouseMove 的監聽
 _painter.addEventListener('mousedown', function(evt) {
@@ -258,16 +268,29 @@ _painter.addEventListener('mouseup', function(evt) {
   var mousePos = getMousePos(_painter, evt);
   if (mode === 3 || mode === 4 || mode === 5) {
     ctx.beginPath();
-    if (mode === 3) ctx.arc(startPoint.x, startPoint.y, radius, 0, Math.PI*2, true);
+    if (mode === 3) {
+      ctx.arc(startPoint.x, startPoint.y, radius, 0, Math.PI*2, true);
+      if (mini_mode === 2) ctx.fill();
+    }
     else if (mode === 4) {
-      if (mini_mode === 1) ctx.strokeRect(Math.min(startPoint.x, mousePos.x), Math.min(startPoint.y, mousePos.y), Math.abs(startPoint.x - mousePos.x), Math.abs(startPoint.y - mousePos.y));
-      else ctx.fillRect(Math.min(startPoint.x, mousePos.x), Math.min(startPoint.y, mousePos.y), Math.abs(startPoint.x - mousePos.x), Math.abs(startPoint.y - mousePos.y));
+      var left = Math.min(startPoint.x, mousePos.x);
+      var right = Math.max(startPoint.x, mousePos.x);
+      var top = Math.min(startPoint.y, mousePos.y);
+      var bottom = Math.max(startPoint.y, mousePos.y);
+      ctx.moveTo(left, top);
+      ctx.lineTo(right, top);
+      ctx.lineTo(right, bottom);
+      ctx.lineTo(left, bottom);
+      if (mini_mode === 2) ctx.fill();
+      // if (mini_mode === 1) ctx.strokeRect(Math.min(startPoint.x, mousePos.x), Math.min(startPoint.y, mousePos.y), Math.abs(startPoint.x - mousePos.x), Math.abs(startPoint.y - mousePos.y));
+      // else ctx.fillRect(Math.min(startPoint.x, mousePos.x), Math.min(startPoint.y, mousePos.y), Math.abs(startPoint.x - mousePos.x), Math.abs(startPoint.y - mousePos.y));
     }
     else if (mode === 5) {
       var edge = radius * Math.sqrt(3) / 2;
       ctx.moveTo(startPoint.x, startPoint.y - radius);
       ctx.lineTo(startPoint.x + edge, startPoint.y + radius / 2);
       ctx.lineTo(startPoint.x - edge, startPoint.y + radius / 2);
+      if (mini_mode === 2) ctx.fill();
     }
     ctx.closePath();
     ctx.stroke(); 

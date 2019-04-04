@@ -58,31 +58,34 @@
           <div class="font-container">
             <span>font size</span>
             <input type="range" id="font-size" min="1" max="80" step="1">
-            <select id="font-face">
-              <option value="sans-serif">sans-serif</option>
-              <option value="Arial">Arial</option>
-              <option value="Lucida Console">Lucida Console</option>
-              <option value="Impact">Impact</option>
-              <option value="Comic Sans MS">Comic Sans MS</option>
-            </select>
-            <input type="text" id="text">
+            <div class="input-container">
+              <select id="font-face">
+                <option value="sans-serif">sans-serif</option>
+                <option value="Arial">Arial</option>
+                <option value="Lucida Console">Lucida Console</option>
+                <option value="Impact">Impact</option>
+                <option value="Comic Sans MS">Comic Sans MS</option>
+              </select>
+              <input type="text" id="text">
+            </div>
           </div>
         </div>
-        <div id="color">
-          <div class="color black" onclick="changeColor('black')"></div>
-          <div class="color white" onclick="changeColor('white')"></div>
-          <div class="color yellow" onclick="changeColor('yellow')"></div>
-          <div class="color green" onclick="changeColor('green')"></div>
-          <div class="color blue" onclick="changeColor('blue')"></div>
-          <div class="color red" onclick="changeColor('red')"></div>
-          <div class="color purple" onclick="changeColor('purple')"></div>
-          <div class="color gray" onclick="changeColor('gray')"></div>
-          <div class="color pink" onclick="changeColor('pink')"></div>
-          <div class="color orange" onclick="changeColor('orange')"></div>
-        </div>
+      </div>
+      <div id="color">
+        <!-- <div id="black" class="color black" onclick="changeColor('black')"></div>
+        <div id="white" class="color white" onclick="changeColor('white')"></div>
+        <div id="yellow" class="color yellow" onclick="changeColor('yellow')"></div>
+        <div id="green" class="color green" onclick="changeColor('green')"></div>
+        <div id="blue" class="color blue" onclick="changeColor('blue')"></div>
+        <div id="red" class="color red" onclick="changeColor('red')"></div>
+        <div id="purple" class="color purple" onclick="changeColor('purple')"></div>
+        <div id="gray" class="color gray" onclick="changeColor('gray')"></div>
+        <div id="pink" class="color pink" onclick="changeColor('pink')"></div>
+        <div id="orange" class="color orange" onclick="changeColor('orange')"></div> -->
       </div>
     </div>
     <!-- JavaScript -->
 		<script src="index.js"></script>
+		<script src="color.js"></script>
   </body>
 </html>

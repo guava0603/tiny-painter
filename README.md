@@ -2,6 +2,8 @@
 
 ## Software Studio 2018 Spring Assignment 01
 
+### Instructions
+
 1. Pencil, marker, and spray
 2. Eraser and pen(absolute straight line)
 3. Circle
@@ -24,4 +26,6 @@
 9. Reset canvas
 10. undo and redo
 
-Demo link on gitlab: https://106062226.gitlab.io/AS_01_WebCanvas/
+### Demo link on gitlab
+
+https://106062226.gitlab.io/AS_01_WebCanvas/

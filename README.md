@@ -17,3 +17,5 @@
 8. Download image
 9. Reset canvas
 10. undo and redo
+
+Demo link on gitlab: https://106062226.gitlab.io/AS_01_WebCanvas/

@@ -8,11 +8,17 @@
 4. Rectangle
 5. Triangle
 6. Text
+
    a. Adjust font size by the bar underneath.
+   
    b. Adjust the font style by the menu underneath.
+   
    c. Type in the words in the input box.
+   
    d. Click on canvas.
+   
    e. Click the text button.
+
 7. Upload image
 8. Download image
 9. Reset canvas
